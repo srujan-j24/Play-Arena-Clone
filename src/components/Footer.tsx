@@ -9,6 +9,7 @@ import LinkedinIcon from '@/assets/LinkedinIcon.svg?react'
 import SubBlue from '@/assets/subscribe-blue.svg?react'
 import {Input} from "@/components/ui/input.tsx";
 import {Button} from "@/components/ui/button.tsx";
+import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@/components/ui/tooltip.tsx";
 
 
 function Footer() {
@@ -31,14 +32,36 @@ function Footer() {
     },
   ];
   const contactIcons = [
-    <WhatsAppIcon/>,
-    <PhoneIcon/>,
-    <LocationIcon/>,
-    <InstagramIcon/>,
-    <YoutubeIcon/>,
-    <FacebookIcon/>,
-    <LinkedinIcon/>
-  ]
+    {
+      component: <WhatsAppIcon />,
+      tooltip: "WhatsApp",
+    },
+    {
+      component: <PhoneIcon />,
+      tooltip: "Call us",
+    },
+    {
+      component: <LocationIcon />,
+      tooltip: "Google Maps",
+    },
+    {
+      component: <InstagramIcon />,
+      tooltip: "Instagram",
+    },
+    {
+      component: <YoutubeIcon />,
+      tooltip: "YouTube",
+    },
+    {
+      component: <FacebookIcon />,
+      tooltip: "Facebook",
+    },
+    {
+      component: <LinkedinIcon />,
+      tooltip: "LinkedIn",
+    },
+  ];
+
   return (
     <footer className="bg-black text-white">
         <div className="grid grid-cols-1 md:grid-cols-[repeat(3,25vw)] py-8 gap-8 px-[clamp(10px,2%,80px)] justify-center">
@@ -49,7 +72,7 @@ function Footer() {
               <Label>
                 Subscribe to newsletter
               </Label>
-              <div className="bg-white rounded-lg flex">
+              <div className="bg-white rounded-lg flex outline outline-1 outline-white focus-within:outline-offset-4 my-4 transition-all duration-200">
                 <Input className="border-none focus-visible:ring-0 text-black"/>
                 <Button size="icon" variant="ghost" className="mr-1">
                   <SubBlue/>
@@ -67,9 +90,18 @@ function Footer() {
             <div className="flex gap-4 text-white flex-wrap">
               {
                 contactIcons.map((icon, index) => (
-                  <a href="" className="hover:text-[#007bfe]" key={index}>
-                    {icon}
-                  </a>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <a href="" className="hover:text-[#007bfe]" key={index}>
+                          {icon.component}
+                        </a>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>{icon.tooltip}</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
                 ))
               }
             </div>
@@ -85,7 +117,7 @@ function Footer() {
                   <ul>
                     {category.items.map((item, itemIndex) => (
                       <li key={itemIndex}>
-                        <a href="" className="text-[#007bfe]">
+                        <a href="" className="text-[#007bfe] hover:text-gray-400">
                           {item}
                         </a>
                       </li>

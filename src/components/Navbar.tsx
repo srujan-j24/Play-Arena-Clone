@@ -10,6 +10,7 @@ import {
 import {PlayMenu, ParticipateMenuList, Menu, HostMenuList, FBMenuList} from "@/components/Menus.tsx";
 import Logo from '@/assets/logo.svg?react'
 import NavSheet from "@/components/NavSheet.tsx";
+import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@/components/ui/tooltip.tsx";
 
 function Navbar() {
 
@@ -20,16 +21,24 @@ function Navbar() {
     {title: "F&B", content: <Menu menu={FBMenuList}/> },
   ]
   const navIcons = [
-    <WhatsAppIcon/>,
-    <PhoneIcon/>,
-    <LocationIcon/>,
-  ]
-  return (
+    {
+      component: <WhatsAppIcon />,
+      tooltip: "WhatsApp",
+    },
+    {
+      component: <PhoneIcon />,
+      tooltip: "Call us",
+    },
+    {
+      component: <LocationIcon />,
+      tooltip: "Google Maps",
+    },
+  ];  return (
     <nav className="bg-black text-white">
       <div className="flex items-center justify-between px-2 sm:px-12 md:px-16 h-16 transition-[padding] duration-200 ">
-        <div className="text-xl font-bold">
+        <a href="" className="text-xl font-bold">
           <Logo className="scale-[0.8]"/>
-        </div>
+        </a>
         <ul className="flex gap-6 text-lg font-medium">
           <NavigationMenu>
             <NavigationMenuList className="gap-2">
@@ -48,7 +57,18 @@ function Navbar() {
               {
                 navIcons.map((item, i) => (
                   <NavigationMenuLink key={i} className="hover:text-[#007bfe] hidden md:flex">
-                    {item}
+                    <TooltipProvider>
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <a href="">
+                            {item.component}
+                          </a>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>{item.tooltip}</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
                   </NavigationMenuLink>
                 ))
               }
