@@ -33,7 +33,7 @@ function SectionPlayYourWay() {
         </div>
         {
           playCards.map(({src, des, title}, index) => (
-            <PlayCard src={src} description={des} title={title}/>
+            <PlayCard src={src} description={des} title={title} key={index}/>
           ))
         }
         <a href="" className="md:col-span-3 underline underline-offset-8 text-4xl leading-relaxed text-justify">
