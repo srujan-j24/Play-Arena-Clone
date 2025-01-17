@@ -25,16 +25,21 @@ function SectionPlayYourWay() {
     <section className="bg-[#ebdbcc] py-16 w-full">
       <div className="grid grid-cols-1 md:grid-cols-[repeat(3,25vw)] px-[clamp(10px,2%,80px)] gap-8 justify-center">
         <div className="md:col-span-3 flex flex-col gap-6">
-          <h1 className="text-7xl font-semibold">Play, Your Way</h1>
-          <p className="text-lg text-justify">When it comes to get-togethers, the more is always the merrier. You bring the people, we’ll take care of the rest. Call us for customized birthdays, farewells, anniversaries and other events or group packages with entertainment, music and a fantastic range of F&B to choose from.</p>
+          <h1 className="text-6xl md:text-7xl font-semibold">Play, Your Way</h1>
+          <p className="text-sm md:text-lg text-justify">When it comes to get-togethers, the more is always the merrier.
+            You bring the people, we’ll take care of the rest. Call us for customized birthdays, farewells,
+            anniversaries and other events or group packages with entertainment, music and a fantastic range of F&B to
+            choose from.</p>
         </div>
         {
           playCards.map(({src, des, title}, index) => (
             <PlayCard src={src} description={des} title={title}/>
           ))
         }
+        <a href="" className="md:col-span-3 underline underline-offset-8 text-4xl leading-relaxed text-justify">
+          Have an off-beat idea? Create your own event, fully customised! &nbsp;  &nbsp; →
+        </a>
       </div>
-
     </section>
   );
 }
