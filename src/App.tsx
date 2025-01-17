@@ -1,6 +1,7 @@
 import Navbar from '@/components/Navbar.tsx'
 import {ScrollArea} from "@/components/ui/scroll-area.tsx";
 import Footer from "@/components/Footer.tsx";
+import SectionBecomeMember from "@/components/SectionBecomeMember.tsx";
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
           />
         </div>
         <div className="h-screen w-full"></div>
+        <SectionBecomeMember/>
         <Footer/>
       </ScrollArea>
     </>
