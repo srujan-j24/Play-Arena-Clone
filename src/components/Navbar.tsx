@@ -21,14 +21,14 @@ function Navbar() {
         <div className="text-xl font-bold">Play Arena</div>
         <ul className="flex gap-6 text-lg font-medium">
           {
-            navItems.map((navItem) => (
-              <li className="hover:text-[#007bfe] transition-all duration-75 hidden md:flex items-center">{navItem}</li>
+            navItems.map((navItem, index) => (
+              <li key={index} className="hover:text-[#007bfe] transition-all duration-75 hidden md:flex items-center">{navItem}</li>
             ))
           }
           <Sheet>
             <SheetTrigger className="md:hidden flex">
-              <Button size="icon" variant="link" >
-                <HamBurgerIcon className="scale-[2]"/>
+              <Button size="icon" variant="link" asChild>
+                <HamBurgerIcon className=""/>
               </Button>
             </SheetTrigger>
             <SheetContent className="">
