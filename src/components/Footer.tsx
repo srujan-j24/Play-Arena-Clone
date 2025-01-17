@@ -102,14 +102,19 @@ function Footer() {
       {/*copyright and policy links*/}
       <div className="py-4">
         <div className="text-center">
-          Copyright © 2025. All rights reserved. &nbsp;
-          <a className="text-[#007bfe]" href="">
-            Disclaimer
-          </a>
-          &nbsp;|&nbsp;
-          <a className="text-[#007bfe]" href="">
-            Privacy Policy
-          </a>
+          <span>
+            Copyright © 2025. All rights reserved.
+          </span>
+          <br/>
+          <span>
+            <a className="text-[#007bfe]" href="">
+              Disclaimer
+            </a>
+              &nbsp;|&nbsp;
+              <a className="text-[#007bfe]" href="">
+              Privacy Policy
+            </a>
+            </span>
         </div>
       </div>
 

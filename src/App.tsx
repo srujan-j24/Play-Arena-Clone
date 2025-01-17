@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-      <ScrollArea className="h-screen w-full ">
+      <ScrollArea className="h-screen w-full font-inter">
         <Navbar/>
         <div className="h-[60vh] w-screen relative overflow-hidden">
           <video
