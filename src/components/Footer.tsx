@@ -44,7 +44,7 @@ function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-[repeat(3,25vw)] py-8 gap-8 px-[clamp(10px,2%,80px)] justify-center">
           {/*mail*/}
           <div className="flex flex-col gap-4">
-            <h1 className="text-6xl font-medium ">Never miss <br/> an update</h1>
+            <h1 className="text-5xl md:text-6xl font-medium ">Never miss <br/> an update</h1>
             <div>
               <Label>
                 Subscribe to newsletter
