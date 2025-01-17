@@ -21,7 +21,7 @@ function App() {
           />
         </div>
         <SectionPlayYourWay/>
-        <div className="h-screen w-full"></div>
+        {/*<div className="h-screen w-full"></div>*/}
         <SectionBecomeMember/>
         <Footer/>
       </ScrollArea>
